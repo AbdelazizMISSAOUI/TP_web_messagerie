@@ -1,5 +1,7 @@
+const API_BASE = "https://tp-web-messagerie-1.onrender.com/";
+
 function update() {
-  fetch("http://localhost:8080/msg/getAll")
+  fetch(API_BASE + "msg/getAll")
     .then(function(response) {
       return response.json();
     })
@@ -17,7 +19,7 @@ function update() {
         btnSupprimer.textContent = "Supprimer";
 
         btnSupprimer.addEventListener("click", function() {
-          fetch("http://localhost:8080/msg/del/" + i)
+          fetch(API_BASE + "msg/del/" + i)
             .then(function(response) {
               return response.json();
             })
@@ -56,7 +58,7 @@ document.getElementById("btn-envoyer").addEventListener("click", function() {
       + String(maintenant.getMinutes()).padStart(2, "0");
 
     fetch(
-      "http://localhost:8080/msg/post?pseudo=" + encodeURIComponent(pseudo)
+      API_BASE + "msg/post?pseudo=" + encodeURIComponent(pseudo)
       + "&msg=" + encodeURIComponent(message)
       + "&date=" + encodeURIComponent(dateTexte)
     )
