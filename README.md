@@ -29,8 +29,9 @@ npm start
 
 ouvrir frontend/index.html
 
-## ☁️ Déploiement
+##  Déploiement
 - Backend : Render (Web Service)
 - Frontend : Render (Static Site)
 
-
+## Le petit rapport
+RAPPORT.pdf
