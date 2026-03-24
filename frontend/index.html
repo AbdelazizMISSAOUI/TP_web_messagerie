@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site de dépôt de messages</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Dépôt de messages</h1>
+  </header>
+
+  <main>
+    <section>
+      <h2>Messages récents</h2>
+      <ul id="liste-messages">
+        <li>Bonjour à tous !</li>
+        <li>J'espère que vous allez bien.</li>
+        <li>C'est mon premier HTML.</li>
+        <li>Ceci est la première partie.</li>
+        <li>Au revoir !</li>
+      </ul>
+      <button id="btn-update" type="button">Mettre à jour</button>
+    </section>
+
+    <section>
+      <h2>Poster un message</h2>
+
+      <label for="pseudo">Votre pseudo :</label>
+      <input type="text" id="pseudo" name="pseudo">
+
+      <br><br>
+
+      <label for="message">Votre message :</label>
+      <textarea id="message" name="message" rows="5" cols="40"></textarea>
+      <br>
+
+      <button id="btn-envoyer" type="button">Envoyer</button>
+    </section>
+
+    <section>
+      <h2>Apparence</h2>
+      <button id="btn-theme" type="button">Changer de style</button>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
