@@ -1,4 +1,4 @@
-const API_BASE = "https://tp-web-messagerie-1.onrender.com/";
+const API_BASE = "https://tp-web-messagerie.onrender.com/";
 
 function update() {
   fetch(API_BASE + "msg/getAll")
