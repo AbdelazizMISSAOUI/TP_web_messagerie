@@ -1,13 +1,20 @@
 const API_BASE = "https://tp-web-messagerie.onrender.com/";
 
 function update() {
+  let liste = document.getElementById("liste-messages");
+  liste.innerHTML = "<li>⏳ Chargement des messages...</li>";
+
   fetch(API_BASE + "msg/getAll")
     .then(function(response) {
       return response.json();
     })
     .then(function(data) {
-      let liste = document.getElementById("liste-messages");
       liste.innerHTML = "";
+
+      if (data.length === 0) {
+        liste.innerHTML = "<li>Aucun message</li>";
+        return;
+      }
 
       for (let i = 0; i < data.length; i++) {
         let li = document.createElement("li");
@@ -27,6 +34,7 @@ function update() {
               update();
             })
             .catch(function(error) {
+              liste.innerHTML = "<li>❌ Erreur lors de la suppression</li>";
               console.log("Erreur lors de la suppression :", error);
             });
         });
@@ -37,6 +45,7 @@ function update() {
       }
     })
     .catch(function(error) {
+      liste.innerHTML = "<li>❌ Impossible de contacter le serveur</li>";
       console.log("Erreur lors de la récupération des messages :", error);
     });
 }
@@ -71,6 +80,8 @@ document.getElementById("btn-envoyer").addEventListener("click", function() {
         update();
       })
       .catch(function(error) {
+        let liste = document.getElementById("liste-messages");
+        liste.innerHTML = "<li>❌ Erreur lors de l'envoi du message</li>";
         console.log("Erreur lors de l'envoi du message :", error);
       });
   }
